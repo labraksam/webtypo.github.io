@@ -1,0 +1,1472 @@
+/* **********************************************
+Basic mechanics
+Hide all paragraphs by default
+Show them when they receive the class 'on'
+Hide them when they receive the class 'off'
+Feel free to adjust the defaults to your needs.
+********************************************** */
+
+body {
+/*    font-family: sans-serif;*/
+    background-color: black;
+}
+
+
+#closed-captions p {
+	opacity: 0;
+	transition: .05s;
+	position: absolute;
+}
+
+#closed-captions .on {
+	opacity: 1;
+}
+
+#closed-captions .off {
+	transition: .2s;
+	opacity: 0;
+}
+
+.voice1 {
+    position: absolute; 
+    text-align: left;
+    top: 10vh;
+    right: 10vw;
+}
+
+.voice2 {
+    font-family: Brenner Mono Bold;
+    font-weight: 800; 
+    font-style: italic;
+    font-size: 1.8em;
+    position: absolute; 
+    bottom: 10vh;
+    left: 10vw;
+    max-width: 100%; 
+    color: lightsalmon; 
+    text-shadow:
+       -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+         1px 1px 0 #000;
+}
+
+
+.voice3 {
+    font-style: normal; 
+    font-weight: 800; 
+    position: absolute;
+    bottom: 20vh; 
+    left: 15vh; 
+    font-size: 3em;
+    transition: visibility 0s 4s, opacity .1s linear;
+    transform: rotate(20deg);
+    text-transform: uppercase;
+    text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF;
+}
+
+
+.p1.on::before, .p3.on::before, .p4.on::before, .p5.on::before, .p7.on::before, .p9.on::before, .p12.on::before, .p15.on::before, .p18.on::before, .p20.on::before, .p23.on::before, .p26.on::before, .p29.on::before, .p31.on::before, .p34.on::before, .p37.on::before, .p39.on::before, .p41.on::before, .p42.on::before, .p43.on::before {
+    content: '- ';
+    color: white; 
+}
+
+
+/*https://codepen.io/branovaclav/pen/bpobbg*/
+.sound3::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 300px;
+  margin-left: -10px;
+  background-image: linear-gradient(
+    rgba(100, 27, 0, 0),
+    rgba(220, 20, 60, .7), rgba(100, 27, 0, 0));
+  animation: scanning 3s cubic-bezier(0,.31,.83,.67) forwards;
+    z-index: -1;
+}
+@keyframes scanning {
+    100% { transform: translate(0, -1000px); }
+}
+
+
+/*https://codepen.io/branovaclav/pen/bpobbg*/
+.sound5::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 300px;
+  margin-left: -10px;
+  background-image: linear-gradient(
+    rgba(100, 27, 0, 0),
+    rgba(220, 20, 60, .7), rgba(100, 27, 0, 0));
+  animation: scanning1 3s cubic-bezier(0,.31,.83,.67) forwards;
+    z-index: -1;
+}
+@keyframes scanning1 {
+    100% { transform: translate(0, -1000px); }
+}
+
+
+/*https://codepen.io/branovaclav/pen/bpobbg*/
+.sound7::after {
+  content: '';
+  position: absolute;
+  width: 120%;
+  height: 300px;
+  margin-left: -10px;
+  background-image: linear-gradient(
+    rgba(100, 27, 0, 0),
+    rgba(220, 20, 60, .7), rgba(100, 27, 0, 0));
+  animation: scanning2 3s cubic-bezier(0,.31,.83,.67) forwards;
+    z-index: -1;
+}
+@keyframes scanning2 {
+    100% { transform: translate(0, -1000px); }
+}
+
+/*
+
+.voice1::before {
+    z-index: +1; 
+    position: absolute;
+    content: url('https://i.pinimg.com/originals/49/55/01/495501f797c32344524a27cdf9ae76f5.png');
+    transform: rotate(180deg);
+    animation: cells 3s cubic-bezier(0,.31,.83,.67) forwards;
+}
+*/
+
+url {
+    width: 2px; 
+    height: 2px;  
+}
+
+
+
+.sound0 {
+    animation: pulse 30s forwards; 
+}
+@keyframes pulse {
+    0% {
+        background-color: black;
+    }
+    
+    100% {
+        background-color: darkgray;
+    }
+    
+}
+
+
+/*https://css-tricks.com/snippets/css/shake-css-keyframe-animation/*/
+.sound1 iframe {
+    animation: shake 0.2s linear forwards 4;  
+}
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/drop-shadow*/
+.sound2 iframe {
+    animation: alarm  3s linear forwards; 
+}
+@keyframes alarm {
+    10% {
+        filter: drop-shadow(0 0 10rem crimson);
+    }
+    
+    50% {
+        filter: drop-shadow(0 0 10rem black);
+    }
+    
+    100% {
+        filter: none;
+    } 
+}
+
+/*https://www.gradient-animator.com/*/
+.sound8 {
+background: linear-gradient(91deg, #ffffff, #cecece, #ffffff);
+background-size: 600% 600%;
+
+animation: grey 10s ease forwards;   
+}
+
+@keyframes grey { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 51%}
+    100%{background-position:0% 50%}
+}
+
+/*Janne Jansen*/
+.sound9 iframe{
+    animation: beep 43s;
+    transform-origin: center;
+}
+
+@keyframes beep {
+    0% {
+        transform: scale(1);
+    } 
+    94% {
+        transform: scale(0.6);
+        
+    }
+    95% {
+        transform: scale(1);
+    }
+}
+
+/*https://developer.mozilla.org/en-US/docs/Web/CSS/filter-function/drop-shadow*/
+.sound10 {
+    animation: green  3s linear forwards; 
+}
+
+@keyframes green {
+    10% {
+        filter: drop-shadow(0 0 10rem green);
+    }
+    
+    50% {
+        filter: drop-shadow(0 0 10rem lightgreen);
+    }
+    
+    100% {
+        filter: none;
+    }
+    
+}
+
+
+p {
+    color: white;
+}
+
+.parent {
+    display: flex;
+    align-content: center;
+}
+
+#video-placeholder {
+    margin: auto;
+    margin-top: 175px; 
+}
+
+
+.p0, .p2, .p8, .p10, .p11, .p13, .p14, .p16, .p17, .p19, .p21, .p22, .p24, .p25, .p27, .p28, .p30, .p32, .p33, .p35, .p36, .p38, .p40, .p44 {
+    animation: fontchange .3s linear infinite;
+    background: black;
+    border-style: dashed; 
+    border-color: white; 
+    border-width: thin;
+    font-size: 1.3em;
+    padding: .2em;
+}
+
+
+/*https://stackoverflow.com/questions/16552397/css-how-to-add-white-space-before-elements-content*/
+.p0::before, .p2::before, .p8::before, .p10::before, .p11::before, .p13::before, .p14::before, .p16::before, .p17::before, .p19::before, .p21::before, .p22::before, .p24::before, .p25::before, .p27::before, .p28::before, .p30::before, .p32::before, .p33::before, .p35::before, .p36::before, .p38::before, .p40::before {
+    content: '\00a0 ';
+}
+
+
+@keyframes fontchange {
+    0% {
+        font-family: "Brenner Sans Medium";
+        font-style: italic;
+    }
+    30% {
+        font-family: "Brenner Sans Medium Italic";
+        font-style: normal;        
+    }
+    50% {
+        font-family: "Brenner Sans";
+        font-style: italic;
+        color: #00cc00;
+    }
+    100% {
+        font-family: "Brenner Sans";
+        font-style: normal; 
+    }
+}
+
+
+.p6 {
+    animation: fontchangeskin .1s linear infinite; 
+}
+
+@keyframes fontchangeskin {
+    0% {
+        font-family: "Brenner Sans";
+        font-style: italic;
+        color: #BD2024; 
+    }
+    50% {
+        font-family: "Brenner Sans";
+        font-style: normal;
+        color: #EE4130;
+    }
+    100% {
+        font-family: "Brenner Sans";
+        color: #D22C2B;
+    }
+}
+
+
+
+
+
+/* **********************************************
+The first paragraph, with extended timing for 
+	all siblings. Basically what it does is that
+	it shows the text after a delay, which 
+	corresponds with the time that the word is
+	spoken.
+You probably want to change the styling.
+********************************************** */
+
+.p0 span {
+	opacity: 0; 
+}
+.p0.on span:first-of-type {
+	opacity: 1;
+	transition: 0s;
+}
+.p0.on span:nth-of-type(2) {
+	opacity: 1;
+	transition: 0s .4s;
+}
+.p0.on span:nth-of-type(3) {
+	opacity: 1;
+	transition: 0s .5s;
+}
+.p0.on span:nth-of-type(4) {
+	opacity: 1;
+	transition: 0s .7s;
+    margin-right: -.25em;
+}
+.p0.on span:nth-of-type(5) {
+	opacity: 1;
+	transition: 0s 1.1s;
+}
+.p0.on span:nth-of-type(6) {
+	opacity: 1;
+	transition: 0s 1.4s;
+	margin-right: -.25em;
+}
+.p0.on span:nth-of-type(7) {
+	opacity: 1;
+	transition: 0s 1.7s;
+	margin-right: -.25em;
+}
+.p0.on span:nth-of-type(8) {
+	opacity: 1;
+	transition: 0s 2s;
+}
+.p0.on span:nth-of-type(9) {
+	opacity: 1;
+	transition: 0s 3s;
+}
+.p0.on span:nth-of-type(10) {
+	opacity: 1;
+	transition: 0s 3.2s;
+}
+.p0.on span:nth-of-type(11) {
+	opacity: 1;
+	transition: 0s 3.7s;
+    font-size: 2em;
+}
+
+.p1 span {
+    opacity: 0; 
+    
+}
+.p1.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+}
+.p1.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .4s;
+}
+.p2 span {
+    opacity: 0; 
+}
+.p2.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+}
+.p2.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .2s;
+}
+.p2.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .5s;
+}
+
+.p3 span {
+    opacity: 0; 
+}
+.p3.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+}
+.p3.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .2s;
+}
+.p3.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .6s;
+
+
+}
+.p3.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s 1.3s;
+}
+.p3.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s 1.7s;
+}
+.p3.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s 2.0s;
+}
+.p3.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s 2.3s;
+}
+
+.p4 span {
+    opacity: 0; 
+}
+.p4.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+}
+.p4.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .2s;
+}
+.p4.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .4s;
+}
+.p4.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .6s;
+    color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+.p4.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .9s;
+}
+.p4.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s 1.4s;
+}
+.p4.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s 2.0s;
+    color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+.p5 span {
+    opacity: 0; 
+}
+.p5.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+}
+.p5.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .2s;
+}
+.p5.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .5s;
+    color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+.p5.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s 1s;
+}
+.p5.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s 1.8s;
+}
+
+.p5.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s 2.4s;
+}
+
+.p5.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s 2.6s;
+}
+
+.p5.on span:nth-of-type(8) {
+    opacity: 1;
+	transition: 0s 2.8s;
+}
+
+
+.p6 span {
+    opacity: 0; 
+}
+.p6.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p6.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p6.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .6s;
+
+
+}
+.p7 span {
+    opacity: 0; 
+}
+.p7.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+}
+.p7.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p7.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .8s;
+
+
+}
+.p7.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s 1.2s;
+
+
+}
+.p7.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s 1.5s;
+
+
+}
+.p7.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s 1.8s;
+
+
+}
+.p7.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s 2.4s;
+
+
+}
+.p7.on span:nth-of-type(8) {
+    opacity: 1;
+	transition: 0s 2.7s;
+
+
+}
+.p7.on span:nth-of-type(9) {
+    opacity: 1;
+	transition: 0s 3.1s;
+
+
+}
+.p7.on span:nth-of-type(10) {
+    opacity: 1;
+	transition: 0s 3.4s;
+
+
+}
+.p7.on span:nth-of-type(11) {
+    opacity: 1;
+	transition: 0s 3.8s;
+}
+
+.p9 {
+    opacity: 0;
+    color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+.p10 span {
+    opacity: 0; 
+}
+.p10.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p10.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p10.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .3s;
+
+
+}
+.p10.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .6s;
+
+
+}
+.p10.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .7s;
+
+
+}
+.p10.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s 1s;
+
+
+}
+.p10.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s 1.2s;
+
+
+}
+
+.p13 span {
+    opacity: 0; 
+}
+.p13.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p13.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .1s;
+
+
+}
+.p13.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p13.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .4s;
+
+
+}
+.p13.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .5s;
+
+
+}
+.p13.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s .6s;
+
+
+}
+.p13.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s .8s;
+            color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+
+.p16 span {
+    opacity: 0; 
+}
+.p16.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p16.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .1s;
+
+
+}
+.p16.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p16.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .4s;
+
+
+}
+.p16.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .7s;
+
+
+}
+.p16.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s .9s;
+
+
+}
+.p16.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s 1.1s;
+
+
+}
+.p16.on span:nth-of-type(8) {
+    opacity: 1;
+	transition: 0s 1.4s;
+
+
+}
+.p16.on span:nth-of-type(9) {
+    opacity: 1;
+	transition: 0s 1.7s;
+
+
+}
+.p16.on span:nth-of-type(10) {
+    opacity: 1;
+	transition: 0s 1.9s;
+
+
+}
+.p16.on span:nth-of-type(11) {
+    opacity: 1;
+	transition: 0s 2s;
+
+
+}
+.p16.on span:nth-of-type(12) {
+    opacity: 1;
+	transition: 0s 2.2s;
+
+
+}
+.p16.on span:nth-of-type(13) {
+    opacity: 1;
+	transition: 0s 2.4s;
+
+
+}
+.p16.on span:nth-of-type(14) {
+    opacity: 1;
+	transition: 0s 2.5s;
+
+
+}
+
+.p21 span {
+    opacity: 0; 
+}
+.p21.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p21.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .1s;
+
+
+}
+.p21.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p21.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .4s;
+
+
+}
+.p21.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .5s;
+
+
+}
+.p21.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s .7s;
+
+
+}
+.p21.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s .8s;
+
+
+}
+.p21.on span:nth-of-type(8) {
+    opacity: 1;
+	transition: 0s .9s;
+
+
+}
+.p21.on span:nth-of-type(9) {
+    opacity: 1;
+	transition: 0s 1.1s;
+
+
+}
+.p21.on span:nth-of-type(10) {
+    opacity: 1;
+	transition: 0s 1.3s;
+
+
+}
+.p21.on span:nth-of-type(11) {
+    opacity: 1;
+	transition: 0s 1.5s;
+
+
+}
+
+.p24 span {
+    opacity: 0; 
+}
+.p24.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p24.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .1s;
+
+
+}
+.p24.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p24.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .4s;
+
+
+}
+.p24.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .5s;
+
+
+}
+.p24.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s .7s;
+
+
+}
+.p24.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s .8s;
+
+
+}
+.p24.on span:nth-of-type(8) {
+    opacity: 1;
+	transition: 0s .9s;
+
+
+}
+.p24.on span:nth-of-type(9) {
+    opacity: 1;
+	transition: 0s 1.1s;
+
+
+}
+.p24.on span:nth-of-type(10) {
+    opacity: 1;
+	transition: 0s 1.3s;
+
+
+}
+.p24.on span:nth-of-type(11) {
+    opacity: 1;
+	transition: 0s 1.5s;
+
+
+}
+
+.p27 span {
+    opacity: 0; 
+}
+.p27.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p27.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .1s;
+
+
+}
+.p27.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p27.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .4s;
+
+
+}
+.p27.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .5s;
+
+
+}
+.p27.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s .7s;
+
+
+}
+.p27.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s .8s;
+
+
+}
+.p27.on span:nth-of-type(8) {
+    opacity: 1;
+	transition: 0s .9s;
+
+
+}
+.p27.on span:nth-of-type(9) {
+    opacity: 1;
+	transition: 0s 1.4s;
+
+
+}
+
+.p30 span {
+    opacity: 0; 
+}
+.p30.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p30.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .1s;
+
+
+}
+.p30.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p30.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .4s;
+
+
+}
+.p30.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .5s;
+
+
+}
+.p30.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s .7s;
+
+
+}
+.p30.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s .8s;
+
+
+}
+
+.p32 span {
+    opacity: 0; 
+}
+.p32.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p32.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .1s;
+
+
+}
+.p32.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p32.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .4s;
+
+
+}
+.p32.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .5s;
+
+
+}
+.p32.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s .7s;
+
+
+}
+.p32.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s .8s;
+
+
+}
+.p32.on span:nth-of-type(8) {
+    opacity: 1;
+	transition: 0s 1s;
+
+
+}
+.p32.on span:nth-of-type(9) {
+    opacity: 1;
+	transition: 0s 1.2s;
+
+
+}
+.p32.on span:nth-of-type(10) {
+    opacity: 1;
+	transition: 0s 1.4s;
+
+
+}
+.p32.on span:nth-of-type(11) {
+    opacity: 1;
+	transition: 0s 1.6s;
+
+
+}
+
+
+.p35 span {
+    opacity: 0; 
+}
+.p35.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p35.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .1s;
+
+
+}
+.p35.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p35.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .4s;
+
+
+}
+.p35.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .5s;
+
+
+}
+.p35.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s .7s;
+
+
+}
+.p35.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s .8s;
+
+
+}
+.p35.on span:nth-of-type(8) {
+    opacity: 1;
+	transition: 0s 1s;
+
+
+}
+.p35.on span:nth-of-type(9) {
+    opacity: 1;
+	transition: 0s 1.2s;
+
+
+}
+.p35.on span:nth-of-type(10) {
+    opacity: 1;
+	transition: 0s 1.4s;
+
+
+}
+.p35.on span:nth-of-type(11) {
+    opacity: 1;
+	transition: 0s 1.6s;
+
+
+}
+.p35.on span:nth-of-type(12) {
+    opacity: 1;
+	transition: 0s 1.8s;
+
+
+}
+
+.p38 span {
+    opacity: 0; 
+}
+.p38.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p38.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .3s;
+            color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+.p38.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .6s;
+
+
+}
+.p39 span {
+    opacity: 0; 
+}
+.p39.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p39.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .6s;
+        color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1em;
+
+}
+.p39.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .9s;
+
+
+}
+
+
+.p40 span {
+    opacity: 0; 
+}
+.p40.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p40.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .1s;
+
+
+}
+.p40.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .2s;
+
+
+}
+.p40.on span:nth-of-type(4) {
+    opacity: 1;
+	transition: 0s .4s;
+
+
+}
+.p40.on span:nth-of-type(5) {
+    opacity: 1;
+	transition: 0s .5s;
+
+
+}
+.p40.on span:nth-of-type(6) {
+    opacity: 1;
+	transition: 0s .7s;
+
+
+}
+.p40.on span:nth-of-type(7) {
+    opacity: 1;
+	transition: 0s .8s;
+
+
+}
+.p40.on span:nth-of-type(8) {
+    opacity: 1;
+	transition: 0s 1.2s;
+
+
+}
+.p40.on span:nth-of-type(9) {
+    opacity: 1;
+	transition: 0s 1.6s;
+
+
+}
+.p40.on span:nth-of-type(10) {
+    opacity: 1;
+	transition: 0s 2s;
+
+
+}
+
+.p41 span {
+    opacity: 0; 
+}
+.p41.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p41.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .6s;
+        color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1em;
+
+}
+.p41.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .9s;
+
+
+}
+
+.p42 span {
+    opacity: 0; 
+}
+.p42.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p42.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .4s;
+        color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1em;
+
+}
+.p42.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .9s;
+
+
+}
+
+.p43 span {
+    opacity: 0; 
+}
+.p43.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+
+
+}
+.p43.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .4s;
+        color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+.p43.on span:nth-of-type(3) {
+    opacity: 1;
+	transition: 0s .9s;
+
+
+}
+
+.p44 span {
+    opacity: 0; 
+}
+.p44.on span:first-of-type {
+    opacity: 1;
+	transition: 0s;
+}
+.p44.on span:nth-of-type(2) {
+    opacity: 1;
+	transition: 0s .4s;
+}
+
+
+.p8, .p11, .p14, .p17, .p9, .p12, .p15, .p18 {
+            color: #333; 
+    text-shadow:
+       -1px -1px 0 #FFF,  
+        1px -1px 0 #FFF,
+        -1px 1px 0 #FFF,
+         1px 1px 0 #FFF;
+    font-family: Brenner Sans;
+    text-transform: uppercase;
+    font-size: 1.8em;
+}
+
